@@ -27,6 +27,33 @@ $regular : 400;
 $bold: 700;
 $black: 900;
 
+
+// _mixins
+
+/** Media Queries **/
+@mixin telefono {
+    @media (min-width: #{$telefono}) {
+        @content;
+    }
+}
+
+@mixin tablet {
+    @media (min-width: #{$tablet}) {
+        @content;
+    }
+}
+  
+@mixin desktop {
+    @media (min-width: #{$desktop}) {
+        @content;
+    }
+}
+@mixin grid($columnas, $espaciado ) {
+    display: grid;
+    gap: $espaciado;
+    grid-template-columns: repeat($columnas, 1fr);
+}
+
 // _globales
 
 html {
@@ -40,6 +67,7 @@ body {
     font-family: $fuente_principal;
     font-size: 1.6rem;
     line-height: 1.8;
+    margin: 0;
 }
 p {
     color: $negro;

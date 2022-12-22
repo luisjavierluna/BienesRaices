@@ -9,3 +9,66 @@
 .contenido-centrado {
     max-width: 800px;
 }
+
+
+// HEADER
+
+.header {
+    background-color: $grisOscuro;
+    padding: 1rem 0 3rem 0;
+}
+
+.barra {
+    display: flex;
+    flex-direction: column;
+    padding-top: 3rem;
+    a {
+        width: 100%;
+    }
+    
+    @include tablet {
+        flex-direction: row;
+        justify-content: space-between;
+        a {
+            width: 25%;
+        }
+    }
+}
+
+.navegacion {
+    @include tablet {
+        display: flex;
+        align-items: center;
+    }
+    
+    a {
+        color: $blanco;
+        text-decoration: none;
+        font-size: 2.2rem;
+        display: block;
+        text-align: center;
+        
+        @include tablet {
+            margin-right: 2rem;
+            font-size: 1.8rem;
+
+            &:last-of-type {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+.footer {
+    padding: $separacion / 2 0;
+    background-color: $grisOscuro;
+
+    .contenedor-footer {
+        padding-top: $separacion / 2;
+    }
+
+    .copyright {
+        color: $blanco;
+        text-align: center;
+    }
+}

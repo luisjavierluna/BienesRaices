@@ -91,9 +91,26 @@
     }
 }
 
+@include tablet {
+    .iconos-nosotros {
+        @include grid(3, 2rem)
+    }
+}
+
+.icono {
+    text-align: center;
+    img {
+        height: 10rem;
+    }
+    h3{
+        text-transform: uppercase;
+    }
+}
+
 .footer {
     padding: calc($separacion / 2);
     background-color: $grisOscuro;
+    margin: 0;
 
     .contenedor-footer {
         padding-top: calc($separacion / 2);

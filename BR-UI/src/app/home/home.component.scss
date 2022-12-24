@@ -156,8 +156,12 @@
 
 //
 
-.boton-amarillo {
+.boton-amarillo-block {
     @include boton($amarillo, block)
+}
+
+.boton-amarillo {
+    @include boton($amarillo, inline-block)
 }
 
 .boton-verde {
@@ -171,6 +175,27 @@
 
 //
 
+.imagen-contacto {
+    background-image: url(../../assets/img/encuentra.jpg);
+    background-position: center center;
+    background-size: cover;
+    padding: $separacion * 2 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h2 {
+        font-size: 4rem;
+        font-weight: $black;
+        color: $blanco;
+    }
+    p {
+        font-size: 1.8rem;
+        color: $blanco;
+    }
+}
+
+//
 .footer {
     padding: calc($separacion / 2);
     background-color: $grisOscuro;

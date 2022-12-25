@@ -10,6 +10,7 @@ import { ContactoComponent } from './navegacion/contacto/contacto.component';
 import { HomeComponent } from './home/home.component';
 import { NavegacionComponent } from './navegacion/navegacion.component';
 import { AnuncioComponent } from './navegacion/anuncios/anuncio/anuncio.component';
+import { EntradaComponent } from './navegacion/blog/entrada/entrada.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { AnuncioComponent } from './navegacion/anuncios/anuncio/anuncio.componen
     HomeComponent,
     NavegacionComponent,
     AnuncioComponent,
+    EntradaComponent,
   ],
   imports: [
     BrowserModule,

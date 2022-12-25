@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { AnuncioComponent } from './navegacion/anuncios/anuncio/anuncio.component';
 import { AnunciosComponent } from './navegacion/anuncios/anuncios.component';
 import { BlogComponent } from './navegacion/blog/blog.component';
+import { EntradaComponent } from './navegacion/blog/entrada/entrada.component';
 import { ContactoComponent } from './navegacion/contacto/contacto.component';
 import { NavegacionComponent } from './navegacion/navegacion.component';
 import { NosotrosComponent } from './navegacion/nosotros/nosotros.component';
@@ -19,6 +20,7 @@ const routes: Routes = [
       {path: 'blog', component: BlogComponent},
       {path: 'contacto', component: ContactoComponent},
       {path: 'anuncio', component: AnuncioComponent},
+      {path: 'entrada', component: EntradaComponent},
     ]
   },
 ];

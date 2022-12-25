@@ -1,6 +1,6 @@
 @import '../../styles.scss';
 
-// _utilidades
+// Utilidades
 
 .seccion {
     margin-top: calc($separacion / 2);
@@ -10,7 +10,7 @@
     max-width: 800px;
 }
 
-// HEADER
+// Header
 
 .inicio {
     background-image: url(../../assets/img/header.jpg);
@@ -97,7 +97,7 @@
     }
 }
 
-//
+// Iconos Nosotros
 
 .icono {
     text-align: center;
@@ -154,7 +154,7 @@
     }
 }
 
-//
+// Contenedor Anuncios
 
 .boton-amarillo-block {
     @include boton($amarillo, block)
@@ -173,7 +173,7 @@
     justify-content: flex-end;
 }
 
-//
+// Imagen Contacto
 
 .imagen-contacto {
     background-image: url(../../assets/img/encuentra.jpg);
@@ -195,7 +195,7 @@
     }
 }
 
-//
+// Sección Inferior
 
 @include tablet {
     .seccion-inferior {
@@ -247,7 +247,7 @@
     }
 }
 
-//
+// Testimoniales
 
 .testimonial {
     background-color: $verde;
@@ -279,7 +279,7 @@
     }
 }
 
-//
+// Footer
 
 .footer {
     padding: calc($separacion / 2);

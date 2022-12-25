@@ -7,7 +7,7 @@
     margin-bottom: calc($separacion / 2);
 }
 .contenido-centrado {
-    max-width: 800px;
+    max-width: 80rem;
 }
 
 // Header
@@ -128,17 +128,19 @@
     h3, p {
         margin: 0;
     }
-    .precio {
-        color: $verde;
-        font-weight: $bold;
-        font-size: 3rem;
-    }
+}
+
+.precio {
+    color: $verde;
+    font-weight: $bold;
+    font-size: 3rem;
 }
 
 .iconos-caracteristicas {
     display: flex;
     list-style: none;
     padding: 0;
+    max-width: 40rem;
 
     li {
         flex: 1;

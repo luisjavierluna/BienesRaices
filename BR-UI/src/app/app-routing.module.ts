@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { AnuncioComponent } from './navegacion/anuncios/anuncio/anuncio.component';
 import { AnunciosComponent } from './navegacion/anuncios/anuncios.component';
 import { BlogComponent } from './navegacion/blog/blog.component';
 import { ContactoComponent } from './navegacion/contacto/contacto.component';
@@ -17,6 +18,7 @@ const routes: Routes = [
       {path: 'anuncios', component: AnunciosComponent},
       {path: 'blog', component: BlogComponent},
       {path: 'contacto', component: ContactoComponent},
+      {path: 'anuncio', component: AnuncioComponent},
     ]
   },
 ];

@@ -5,7 +5,11 @@
                 <img src="assets/img/logo.svg" alt="Logotipo de Bienes Raices">
             </a>
 
-            <nav class="navegacion">
+            <div class="mobile-menu" #mobileMenu (click)="navegacionResponsive()">
+                <img src="assets/img/barras.svg" alt="" >
+            </div>
+
+            <nav class="navegacion" #navegacion>
                 <a routerLink="/navegacion/nosotros">Nosotros</a>
                 <a routerLink="/navegacion/anuncios">Anuncios</a>
                 <a routerLink="/navegacion/blog">Blog</a>

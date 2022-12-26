@@ -53,6 +53,7 @@
 .barra {
     display: flex;
     flex-direction: column;
+    align-items: center;
     padding-top: 3rem;
     a {
         width: 100%;
@@ -67,7 +68,11 @@
     }
 }
 
+// Navegación
+
 .navegacion {
+    display: none;
+    
     @include tablet {
         display: flex;
         align-items: center;
@@ -91,13 +96,29 @@
     }
 }
 
+.mostrar {
+    display: block;
+}
+
+// Menu 3 rayas (menu hamburguesa)
+
+.mobile-menu {
+    @include tablet {
+        display: none;
+    }
+
+    img {
+        width: 5rem;
+    }
+}
+
+// Iconos Nosotros
+
 @include tablet {
     .iconos-nosotros {
         @include grid(3, 2rem)
     }
 }
-
-// Iconos Nosotros
 
 .icono {
     text-align: center;

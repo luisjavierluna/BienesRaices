@@ -63,9 +63,11 @@ $black: 900;
     text-align: center;
     margin-top: $separacion / 2;
     display: $display;
+    border: none;
 
     &:hover {
         background-color: darken($bgColor, 5);
+        cursor: pointer;
     }
 }
 

@@ -2,6 +2,7 @@ import { style } from '@angular/animations';
 import { DOCUMENT } from '@angular/common';
 import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, TemplateRef, ViewChild } from '@angular/core';
 import { AppComponent } from '../app.component';
+import { DarkModeService } from '../dark-mode.service';
 
 @Component({
   selector: 'app-home',
@@ -11,14 +12,13 @@ import { AppComponent } from '../app.component';
 export class HomeComponent implements OnInit {
   
   constructor(
-    private renderer2: Renderer2) { }
+    private renderer2: Renderer2,
+    private darkModeService: DarkModeService) { }
   
   // @ViewChild('mobileMenu', { static: true}) mobileMenu?: ElementRef
   @ViewChild('navegacion') navegacion?: ElementRef
   body =  document.body
   show = false
-  darkMode = false
-
 
   ngOnInit(): void {
   }
@@ -36,16 +36,17 @@ export class HomeComponent implements OnInit {
   }
 
   modoOscuro() {
-    const asBody =  document.body
+    const asBody = document.body
 
-    if(this.darkMode === false) {
+    let darkMode = this.darkModeService.darkMode
+
+    if(darkMode === false) {
       this.renderer2.addClass(asBody, 'dark-mode')
-      this.darkMode = !this.darkMode
+      this.darkModeService.cambioModoOscuro()
     } else {
       this.renderer2.removeClass(asBody, 'dark-mode')
-      this.darkMode = !this.darkMode
+      this.darkModeService.cambioModoOscuro()
     }
-
   }
 
 }

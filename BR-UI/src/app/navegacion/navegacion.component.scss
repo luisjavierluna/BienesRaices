@@ -1,4 +1,5 @@
 @import '../../styles.scss';
+@import '../home/home.component.scss';
 
 // _utilidades
 
@@ -49,9 +50,16 @@
 }
 
 .navegacion {
+    visibility: hidden;
+    opacity: 0;
+    height: 0;
+    transition: visibility .3s step-start, opacity 0.5s linear;
+    
     @include tablet {
         display: flex;
         align-items: center;
+        opacity: 1;
+        visibility: visible;
     }
     
     a {
@@ -81,8 +89,21 @@
         padding-top: calc($separacion / 2);
     }
 
+    .navegacion {
+        visibility: visible;
+        opacity: 1;
+        height: auto;
+    }
+
     .copyright {
         color: $blanco;
         text-align: center;
     }
 }
+
+.mostrar {
+    visibility: visible;
+    opacity: 1;
+    height: auto;
+}
+

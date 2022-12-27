@@ -127,17 +127,89 @@ h4 {
     font-size: 2.6rem;
 }
 
+
+// Contacto
+
+app-contacto {
+    .formulario {
+        fieldset {
+            border-color: darken($gris, 25);
+        }
+        
+        p {
+            font-size: 1.4rem;
+            margin: 2rem 0 0 0;
+        }
+    
+        legend {
+            font-size: 2rem;
+        }
+    
+        label {
+            font-weight: 2rem;
+            text-transform: uppercase;
+            display: block;
+        }
+    
+        input:not([type="submit"]),
+        textarea, 
+        select {
+            padding: 1rem;
+            display: block;
+            width: 100%;
+            background-color: $blanco;
+            border: 1px solid $gris;
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+        }
+    
+        textarea {
+            height: 20rem;
+        }
+    
+        .forma-contacto {
+            max-width: 30rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    
+        input[type="radio"] {
+            margin: 0;
+            width: auto;
+        }
+    }
+}
+
+// Light Mode
+
+body {
+    background-color: $blanco;
+    transition: background-color .3s ease-in-out;
+}
+
 // Dark Mode
 
 .dark-mode {
     background-color: darken($grisOscuro, 10);
+    transition: background-color .3s ease-in-out;
 
-    app-home {
-        p {
+    app-home, 
+    app-navegacion,
+    app-anuncios,
+    app-anuncio,
+    app-contacto {
+        
+        p, 
+        blockquote,
+        label,
+        legend {
            color: $blanco;
         }
  
-        .anuncio {
+        .anuncio,
+        .resumen-propiedad
+        {
             background-color: $grisOscuro;
             border: 1px solid $grisOscuro;
 
@@ -150,8 +222,19 @@ h4 {
         }
     }
 
+    app-contacto {
+        .formulario {
+            input:not([type="submit"]),
+            textarea, 
+            select {
+                background-color: $grisOscuro;
+                color: $blanco;
+                border: 1px solid $grisOscuro;
+            }
+        }
+    }
+
     a, h1, h2, h3, h4 {
         color: $gris;
     }
-
 }

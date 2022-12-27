@@ -71,11 +71,15 @@
 // Navegación
 
 .navegacion {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility .3s step-start, opacity 0.5s linear;
     
     @include tablet {
         display: flex;
         align-items: center;
+        opacity: 1;
+        visibility: visible;
     }
     
     a {
@@ -97,7 +101,8 @@
 }
 
 .mostrar {
-    display: block;
+    visibility: visible;
+    opacity: 1;
 }
 
 // Menu 3 rayas (menu hamburguesa)

@@ -50,6 +50,32 @@
     }
 }
 
+.derecha {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include tablet {
+        align-items: flex-end;
+    }
+
+    .dark-mode-boton {
+        width: 3rem;
+        margin-top: 3rem;
+        margin-bottom: 2rem;
+        filter:invert(100%);
+
+        &:hover {
+            cursor: pointer;
+        }
+
+        @include tablet {
+            margin-top: 0;
+        }
+    }
+
+}
+
 .barra {
     display: flex;
     flex-direction: column;
@@ -62,6 +88,7 @@
     @include tablet {
         flex-direction: row;
         justify-content: space-between;
+        align-items: flex-end;
         a {
             width: 25%;
         }
@@ -108,6 +135,9 @@
 // Menu 3 rayas (menu hamburguesa)
 
 .mobile-menu {
+
+    cursor: pointer;
+
     @include tablet {
         display: none;
     }
@@ -146,6 +176,7 @@
 .anuncio {
     background-color: lighten($gris, 5);
     border: 1px solid darken($gris, 10);
+    margin-bottom: 2rem;
 
     .contenido-anuncio {
         padding: 2rem;
@@ -319,6 +350,11 @@
 
     .contenedor-footer {
         padding-top: calc($separacion / 2);
+    }
+
+    .navegacion {
+        visibility: visible;
+        opacity: 1;
     }
 
     .copyright {

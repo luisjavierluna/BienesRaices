@@ -126,3 +126,32 @@ h3 {
 h4 {
     font-size: 2.6rem;
 }
+
+// Dark Mode
+
+.dark-mode {
+    background-color: darken($grisOscuro, 10);
+
+    app-home {
+        p {
+           color: $blanco;
+        }
+ 
+        .anuncio {
+            background-color: $grisOscuro;
+            border: 1px solid $grisOscuro;
+
+            .precio {
+                color: $verde;
+            }
+            .icono {
+                filter: invert(100%);
+            }
+        }
+    }
+
+    a, h1, h2, h3, h4 {
+        color: $gris;
+    }
+
+}

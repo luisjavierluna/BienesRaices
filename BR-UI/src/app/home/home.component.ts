@@ -1,5 +1,6 @@
 import { style } from '@angular/animations';
 import { DOCUMENT } from '@angular/common';
+import { ChangeDetectionStrategy } from '@angular/compiler';
 import { AfterViewInit, Component, ElementRef, OnInit, Renderer2, TemplateRef, ViewChild } from '@angular/core';
 import { AppComponent } from '../app.component';
 import { DarkModeService } from '../dark-mode.service';
@@ -7,7 +8,7 @@ import { DarkModeService } from '../dark-mode.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
   
@@ -21,6 +22,12 @@ export class HomeComponent implements OnInit {
   show = false
 
   ngOnInit(): void {
+    if(this.darkModeService.darkModeAlreadySet === false) {
+      let darkModeIsActive = window.matchMedia('(prefers-color-scheme: dark)')
+      this.darkModeService.cambioModoOscuro(darkModeIsActive.matches)
+      this.modoOscuroInicial()
+      this.darkModeService.establecerModoInicial()
+    }
   }
 
   navegacionResponsive() {
@@ -35,17 +42,29 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  modoOscuro() {
+  modoOscuroInicial() {
+    const asBody = document.body
+
+    let darkMode = this.darkModeService.darkMode
+
+    if(darkMode === true) {
+      this.renderer2.addClass(asBody, 'dark-mode')
+    } else {
+      this.renderer2.removeClass(asBody, 'dark-mode')
+    }
+  }
+
+  modoOscuroClickEvent() {
     const asBody = document.body
 
     let darkMode = this.darkModeService.darkMode
 
     if(darkMode === false) {
       this.renderer2.addClass(asBody, 'dark-mode')
-      this.darkModeService.cambioModoOscuro()
+      this.darkModeService.cambioModoOscuro(!darkMode)
     } else {
       this.renderer2.removeClass(asBody, 'dark-mode')
-      this.darkModeService.cambioModoOscuro()
+      this.darkModeService.cambioModoOscuro(!darkMode)
     }
   }
 

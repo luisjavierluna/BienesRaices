@@ -8,8 +8,13 @@ export class DarkModeService {
   constructor() { }
 
   darkMode = false
+  darkModeAlreadySet = false
 
-  cambioModoOscuro() {
-    this.darkMode = !this.darkMode
+  cambioModoOscuro(darkModeIsActive: boolean) {
+    this.darkMode = darkModeIsActive
+  }
+
+  establecerModoInicial(){
+    this.darkModeAlreadySet = true
   }
 }

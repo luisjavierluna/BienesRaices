@@ -18,6 +18,12 @@ export class NavegacionComponent implements OnInit {
   show = false
 
   ngOnInit(): void {
+    if(this.darkModeService.darkModeAlreadySet === false) {
+      let darkModeIsActive = window.matchMedia('(prefers-color-scheme: dark)')
+      this.darkModeService.cambioModoOscuro(darkModeIsActive.matches)
+      this.modoOscuroInicial()
+      this.darkModeService.establecerModoInicial()
+    }
   }
 
   navegacionResponsive() {
@@ -32,18 +38,30 @@ export class NavegacionComponent implements OnInit {
     }
   }
 
-  modoOscuro() {
-    const asBody =  document.body
+  modoOscuroInicial() {
+    const asBody = document.body
+
+    let darkMode = this.darkModeService.darkMode
+
+    if(darkMode === true) {
+      this.renderer2.addClass(asBody, 'dark-mode')
+    } else {
+      this.renderer2.removeClass(asBody, 'dark-mode')
+    }
+  }
+
+  modoOscuroClickEvent() {
+    const asBody = document.body
 
     let darkMode = this.darkModeService.darkMode
 
     if(darkMode === false) {
       this.renderer2.addClass(asBody, 'dark-mode')
-      this.darkModeService.cambioModoOscuro()
+      this.darkModeService.cambioModoOscuro(!darkMode)
     } else {
       this.renderer2.removeClass(asBody, 'dark-mode')
-      this.darkModeService.cambioModoOscuro()
+      this.darkModeService.cambioModoOscuro(!darkMode)
     }
-  }  
+  }
 
 }

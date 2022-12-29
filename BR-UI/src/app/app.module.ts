@@ -3,26 +3,24 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NosotrosComponent } from './navegacion/nosotros/nosotros.component';
-import { AnunciosComponent } from './navegacion/anuncios/anuncios.component';
-import { BlogComponent } from './navegacion/blog/blog.component';
-import { ContactoComponent } from './navegacion/contacto/contacto.component';
 import { HomeComponent } from './home/home.component';
-import { NavegacionComponent } from './navegacion/navegacion.component';
-import { AnuncioComponent } from './navegacion/anuncios/anuncio/anuncio.component';
-import { EntradaComponent } from './navegacion/blog/entrada/entrada.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { AnunciosComponent } from './anuncios/anuncios.component';
+import { AnuncioComponent } from './anuncios/anuncio/anuncio.component';
+import { BlogComponent } from './blog/blog.component';
+import { EntradaComponent } from './blog/entrada/entrada.component';
+import { ContactoComponent } from './contacto/contacto.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NosotrosComponent,
-    AnunciosComponent,
     BlogComponent,
     ContactoComponent,
     HomeComponent,
-    NavegacionComponent,
-    AnuncioComponent,
     EntradaComponent,
+    LandingPageComponent,
+    AnunciosComponent,
+    AnuncioComponent
   ],
   imports: [
     BrowserModule,

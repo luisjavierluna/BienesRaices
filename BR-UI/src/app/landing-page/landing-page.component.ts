@@ -2,11 +2,11 @@ import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/co
 import { DarkModeService } from '../dark-mode.service';
 
 @Component({
-  selector: 'app-navegacion',
-  templateUrl: './navegacion.component.html',
-  styleUrls: ['./navegacion.component.scss']
+  selector: 'app-landing-page',
+  templateUrl: './landing-page.component.html',
+  styleUrls: ['./landing-page.component.scss']
 })
-export class NavegacionComponent implements OnInit {
+export class LandingPageComponent implements OnInit {
 
   constructor(
     private renderer2: Renderer2,
@@ -63,5 +63,6 @@ export class NavegacionComponent implements OnInit {
       this.darkModeService.cambioModoOscuro(!darkMode)
     }
   }
+
 
 }

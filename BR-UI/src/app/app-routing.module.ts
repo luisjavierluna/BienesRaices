@@ -1,28 +1,26 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
+import { AnuncioComponent } from './anuncios/anuncio/anuncio.component';
+import { AnunciosComponent } from './anuncios/anuncios.component';
+import { BlogComponent } from './blog/blog.component';
+import { EntradaComponent } from './blog/entrada/entrada.component';
+import { ContactoComponent } from './contacto/contacto.component';
 import { HomeComponent } from './home/home.component';
-import { AnuncioComponent } from './navegacion/anuncios/anuncio/anuncio.component';
-import { AnunciosComponent } from './navegacion/anuncios/anuncios.component';
-import { BlogComponent } from './navegacion/blog/blog.component';
-import { EntradaComponent } from './navegacion/blog/entrada/entrada.component';
-import { ContactoComponent } from './navegacion/contacto/contacto.component';
-import { NavegacionComponent } from './navegacion/navegacion.component';
-import { NosotrosComponent } from './navegacion/nosotros/nosotros.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
+import { NosotrosComponent } from './nosotros/nosotros.component';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'navegacion', 
-  component: NavegacionComponent,
+  {path: '', 
+  component: LandingPageComponent,
     children: [
+      {path: '', component: HomeComponent},
       {path: 'nosotros', component: NosotrosComponent},
       {path: 'anuncios', component: AnunciosComponent},
-      {path: 'blog', component: BlogComponent},
-      {path: 'contacto', component: ContactoComponent},
       {path: 'anuncio', component: AnuncioComponent},
+      {path: 'blog', component: BlogComponent},
       {path: 'entrada', component: EntradaComponent},
-    ]
-  },
+      {path: 'contacto', component: ContactoComponent},
+    ]},
 ];
 
 @NgModule({

@@ -61,7 +61,7 @@ $black: 900;
     text-decoration: none;
     padding: 1rem 3rem;
     text-align: center;
-    margin-top: $separacion / 2;
+    margin: $separacion / 2 0;
     display: $display;
     border: none;
 
@@ -195,9 +195,11 @@ body {
     transition: background-color .3s ease-in-out;
 
     app-home, 
-    app-navegacion,
+    app-nosotros,
     app-anuncios,
     app-anuncio,
+    app-blog,
+    app-entrada,
     app-contacto {
         
         p, 
@@ -208,7 +210,7 @@ body {
         }
  
         .anuncio,
-        .resumen-propiedad
+        .entrada
         {
             background-color: $grisOscuro;
             border: 1px solid $grisOscuro;
@@ -220,7 +222,19 @@ body {
                 filter: invert(100%);
             }
         }
+
+        .resumen-propiedad
+        {
+            .precio {
+                color: $verde;
+            }
+            .icono {
+                filter: invert(100%);
+            }
+        }
     }
+
+    
 
     app-contacto {
         .formulario {

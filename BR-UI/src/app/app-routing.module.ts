@@ -8,6 +8,10 @@ import { ContactoComponent } from './contacto/contacto.component';
 import { HomeComponent } from './home/home.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { NosotrosComponent } from './nosotros/nosotros.component';
+import { BorrarPropiedadComponent } from './propiedades/borrar-propiedad/borrar-propiedad.component';
+import { CrearPropiedadComponent } from './propiedades/crear-propiedad/crear-propiedad.component';
+import { EditarPropiedadComponent } from './propiedades/editar-propiedad/editar-propiedad.component';
+import { PropiedadesComponent } from './propiedades/propiedades.component';
 
 const routes: Routes = [
   {path: '', 
@@ -20,6 +24,11 @@ const routes: Routes = [
       {path: 'blog', component: BlogComponent},
       {path: 'entrada', component: EntradaComponent},
       {path: 'contacto', component: ContactoComponent},
+
+      {path: 'propiedades', component: PropiedadesComponent},
+      {path: 'propiedades/crear', component: CrearPropiedadComponent},
+      {path: 'propiedades/editar/:id', component: EditarPropiedadComponent},
+      {path: 'propiedades/borrar/:id', component: BorrarPropiedadComponent},
     ]},
 ];
 

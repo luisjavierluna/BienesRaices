@@ -12,6 +12,11 @@ import { EntradaComponent } from './blog/entrada/entrada.component';
 import { ContactoComponent } from './contacto/contacto.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { PropiedadesComponent } from './propiedades/propiedades.component';
+import { CrearPropiedadComponent } from './propiedades/crear-propiedad/crear-propiedad.component';
+import { EditarPropiedadComponent } from './propiedades/editar-propiedad/editar-propiedad.component';
+import { FormPropiedadComponent } from './propiedades/form-propiedad/form-propiedad.component';
+import { BorrarPropiedadComponent } from './propiedades/borrar-propiedad/borrar-propiedad.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +29,12 @@ import { FooterComponent } from './footer/footer.component';
     AnunciosComponent,
     AnuncioComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    PropiedadesComponent,
+    CrearPropiedadComponent,
+    EditarPropiedadComponent,
+    FormPropiedadComponent,
+    BorrarPropiedadComponent
   ],
   imports: [
     BrowserModule,

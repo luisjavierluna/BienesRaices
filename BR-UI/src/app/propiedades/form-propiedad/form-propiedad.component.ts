@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { PropiedadCreacionDTO } from '../propiedad';
 
 @Component({
   selector: 'app-form-propiedad',
@@ -7,9 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormPropiedadComponent implements OnInit {
 
-  constructor() { }
+  constructor(private formBuilder: FormBuilder) { }
+
+  form: FormGroup = this.formBuilder.group({})
+  
+  @Output() formToSubmit: EventEmitter<PropiedadCreacionDTO> = new EventEmitter<PropiedadCreacionDTO>()
 
   ngOnInit(): void {
+    this.form = this.formBuilder.group({
+      titulo: '',
+      precio: '',
+      imagen: '',
+      descripcion: '',
+      habitaciones: '',
+      wc: '',
+      estacionamiento: '',
+      creado: '',
+      vendedorId: '',
+    })
+  }
+
+  enviarFormulario() {
+    this.formToSubmit.emit(this.form.value)
   }
 
 }

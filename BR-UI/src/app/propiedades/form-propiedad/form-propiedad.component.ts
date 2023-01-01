@@ -24,7 +24,7 @@ export class FormPropiedadComponent implements OnInit {
       habitaciones: '',
       wc: '',
       estacionamiento: '',
-      creado: '',
+      // creado: '',
       vendedorId: '',
     })
   }

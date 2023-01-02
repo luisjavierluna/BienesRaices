@@ -20,6 +20,6 @@ export interface PropiedadCreacionDTO {
     habitaciones: number
     wc: number
     estacionamiento: number
-    // creado: Date
+    creado: Date
     vendedorId: number
 }

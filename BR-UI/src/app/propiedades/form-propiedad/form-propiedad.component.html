@@ -1,3 +1,5 @@
+<app-mostrar-errores [errores]="errores"></app-mostrar-errores>
+
 <form class="formulario" [formGroup]="form" (submit)="enviarFormulario()">
     <fieldset>
         <legend>Información General</legend>
@@ -11,7 +13,7 @@
         <label for="imagen">Imagen:</label>
         <input formControlName="imagen" type="file" id="imagen" accept="image/jpeg, image/png">
 
-        <label for="descripcion">Título:</label>
+        <label for="descripcion">Descripción:</label>
         <textarea formControlName="descripcion" id="descripcion"></textarea>
     </fieldset>
 
@@ -32,6 +34,7 @@
         <legend>Vendedor</legend>
 
         <select formControlName="vendedorId">
+            <option value="" disabled selected >-- Seleccione --</option>
             <option value="1">Juan</option>
             <option value="2">Karen</option>
         </select>

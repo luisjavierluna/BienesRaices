@@ -1,0 +1,11 @@
+@import '../../styles.scss';
+
+li {
+    padding: .5rem;
+    text-align: center;
+    color: $blanco;
+    font-weight: $bold;
+    margin: 1rem 0;
+    background-color: $errorsRed;
+    list-style: none;
+}

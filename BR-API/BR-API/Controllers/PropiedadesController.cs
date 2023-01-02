@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BR_API;
 using BR_API.Entities;
+using BR_API.DTOs;
+using AutoMapper;
 
 namespace BR_API.Controllers
 {
@@ -15,10 +17,14 @@ namespace BR_API.Controllers
     public class PropiedadesController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
+        private readonly IMapper mapper;
 
-        public PropiedadesController(ApplicationDbContext context)
+        public PropiedadesController(
+            ApplicationDbContext context,
+            IMapper mapper)
         {
             _context = context;
+            this.mapper = mapper;
         }
 
         [HttpGet]
@@ -30,8 +36,10 @@ namespace BR_API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> PostPropiedad([FromBody]Propiedad propiedad)
+        public async Task<IActionResult> PostPropiedad([FromForm]PropiedadCreacionDTO propiedadCreacionDTO)
         {
+            var propiedad = mapper.Map<Propiedad>(propiedadCreacionDTO);
+
             await _context.Propiedades.AddAsync(propiedad);
             await _context.SaveChangesAsync();
 

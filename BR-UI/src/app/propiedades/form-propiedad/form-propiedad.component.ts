@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { PropiedadCreacionDTO } from '../propiedad';
 
@@ -15,6 +15,8 @@ export class FormPropiedadComponent implements OnInit {
   
   @Output() formToSubmit: EventEmitter<PropiedadCreacionDTO> = new EventEmitter<PropiedadCreacionDTO>()
 
+  @Input() errores: string[] = []
+  
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       titulo: '',
@@ -24,7 +26,7 @@ export class FormPropiedadComponent implements OnInit {
       habitaciones: '',
       wc: '',
       estacionamiento: '',
-      // creado: '',
+      creado: '',
       vendedorId: '',
     })
   }

@@ -3,5 +3,7 @@
 
     <a routerLink="/propiedades" class="boton boton-verde">Volver</a>
     
-    <app-form-propiedad (formToSubmit)="enviarFormulario($event)"></app-form-propiedad>
+    <app-form-propiedad
+    [errores]="errores"
+    (formToSubmit)="enviarFormulario($event)"></app-form-propiedad>
 </main>

@@ -19,6 +19,7 @@ import { CrearPropiedadComponent } from './propiedades/crear-propiedad/crear-pro
 import { EditarPropiedadComponent } from './propiedades/editar-propiedad/editar-propiedad.component';
 import { FormPropiedadComponent } from './propiedades/form-propiedad/form-propiedad.component';
 import { BorrarPropiedadComponent } from './propiedades/borrar-propiedad/borrar-propiedad.component';
+import { MostrarErroresComponent } from './mostrar-errores/mostrar-errores.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { BorrarPropiedadComponent } from './propiedades/borrar-propiedad/borrar-
     CrearPropiedadComponent,
     EditarPropiedadComponent,
     FormPropiedadComponent,
-    BorrarPropiedadComponent
+    BorrarPropiedadComponent,
+    MostrarErroresComponent
   ],
   imports: [
     BrowserModule,

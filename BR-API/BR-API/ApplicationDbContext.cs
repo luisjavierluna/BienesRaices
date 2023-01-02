@@ -10,7 +10,6 @@ namespace BR_API
         public DbSet<Propiedad> Propiedades { get; set; }
         public DbSet<Vendedor> Vendedores { get; set; }
 
-
         public ApplicationDbContext(DbContextOptions options) : base(options) { }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -21,19 +20,31 @@ namespace BR_API
 
                 propiedad.HasKey(p => p.Id);
 
-                propiedad.Property(p => p.Titulo).HasMaxLength(45);
+                propiedad.Property(p => p.Titulo)
+                    .HasMaxLength(45)
+                    .IsRequired();
 
-                propiedad.Property(p => p.Precio).HasPrecision(10, 2);
+                propiedad.Property(p => p.Precio)
+                    .HasPrecision(10, 2)
+                    .IsRequired();
 
-                propiedad.Property(p => p.Imagen).HasMaxLength(200);
+                propiedad.Property(p => p.Imagen)
+                    .HasMaxLength(200);
 
-                propiedad.Property(p => p.Descripcion);
+                propiedad.Property(p => p.Descripcion)
+                    .IsRequired();
 
-                propiedad.Property(p => p.Habitaciones).HasPrecision(1);
+                propiedad.Property(p => p.Habitaciones)
+                    .HasPrecision(1)
+                    .IsRequired();
 
-                propiedad.Property(p => p.WC).HasPrecision(1);
+                propiedad.Property(p => p.WC)
+                    .HasPrecision(1)
+                    .IsRequired();
 
-                propiedad.Property(p => p.Estacionamiento).HasPrecision(1);
+                propiedad.Property(p => p.Estacionamiento)
+                    .HasPrecision(1)
+                    .IsRequired();
 
                 propiedad.HasOne(p => p.Vendedor)
                     .WithOne(v => v.Propiedad)

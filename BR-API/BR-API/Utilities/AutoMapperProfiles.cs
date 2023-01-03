@@ -11,6 +11,8 @@ namespace BR_API.Utilities
             CreateMap<PropiedadCreacionDTO, Propiedad>()
                 .ForMember(x => x.Imagen, options => options.Ignore())
                 .ForMember(x => x.Creado, options => options.Ignore());
+
+            CreateMap<Vendedor, VendedorDTO>();
         }
     }
 }

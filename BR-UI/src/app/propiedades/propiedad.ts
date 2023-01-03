@@ -12,6 +12,19 @@ export interface Propiedad {
     vendedor: string
 }
 
+export interface PropiedadDTO {
+    id: number
+    titulo: string
+    precio: number
+    imagen: string
+    descripcion: string
+    habitaciones: number
+    wc: number
+    estacionamiento: number
+    vendedorId: number
+    vendedorNombre: string
+}
+
 export interface PropiedadCreacionDTO {
     titulo: string
     precio: number

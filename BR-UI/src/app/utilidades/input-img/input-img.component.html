@@ -1,0 +1,15 @@
+<div class="select">
+    <button class="boton boton-amarillo" type="button" (click)="fileInput.click()">
+        Select Image
+    </button>
+    <input type="file" #fileInput (change)="change($event)">
+</div>
+
+<div class="selected-image">
+    <div *ngIf="imageBase64">
+        <img [src]="imageBase64" alt="Imagen">
+    </div>
+    <div *ngIf="urlCurrentImage">
+        <img [src]="urlCurrentImage" alt="Imagen">
+    </div>
+</div>

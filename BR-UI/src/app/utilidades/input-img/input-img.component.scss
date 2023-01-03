@@ -1,0 +1,21 @@
+@import '../../home/home.component.scss';
+
+.select {
+    input {
+        visibility: hidden;
+        opacity: 0;
+        height: 0;
+        margin: 0;
+        padding: 0;
+    }
+}
+
+.select,
+.selected-image {
+    margin-bottom: 10px;
+}
+
+img {
+    width: 434px;
+    height: auto;
+}

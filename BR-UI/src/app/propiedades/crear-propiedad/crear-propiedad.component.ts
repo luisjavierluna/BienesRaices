@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { parsearErroresAPI } from 'src/app/utilidades';
+import { parsearErroresAPI } from 'src/app/utilidades/utilidades';
 import { PropiedadCreacionDTO } from '../propiedad';
 import { PropiedadesService } from '../propiedades.service';
 

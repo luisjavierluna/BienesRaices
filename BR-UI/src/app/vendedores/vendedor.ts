@@ -7,7 +7,14 @@ export interface Vendedor {
     propiedadTitulo: string
 }
 
-export interface Vendedor {
+export interface VendedorDTO {
+    id: number
+    nombre: string
+    apellido: string
+    telefono: string
+}
+
+export interface VendedorCreacionDTO {
     nombre: string
     apellido: string
     telefono: string

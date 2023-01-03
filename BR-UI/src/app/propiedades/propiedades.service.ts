@@ -21,7 +21,6 @@ export class PropiedadesService {
   private buildFormData(propiedad: PropiedadCreacionDTO): FormData {
     const formData = new FormData()
     formData.append('titulo', propiedad.titulo)
-
     formData.append('precio', propiedad.precio.toString())
     
     if(propiedad.imagen){
@@ -29,11 +28,9 @@ export class PropiedadesService {
     }
 
     formData.append('descripcion', propiedad.descripcion)
-
     formData.append('habitaciones', propiedad.habitaciones.toString())
     formData.append('wc', propiedad.wc.toString())
     formData.append('estacionamiento', propiedad.estacionamiento.toString())
-    
     formData.append('vendedorId', propiedad.vendedorId.toString())
 
     return formData

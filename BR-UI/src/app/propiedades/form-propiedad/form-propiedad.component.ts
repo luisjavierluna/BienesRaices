@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { VendedorDTO } from 'src/app/vendedores/vendedor';
+import { VendedoresService } from 'src/app/vendedores/vendedores.service';
 import { PropiedadCreacionDTO } from '../propiedad';
 
 @Component({
@@ -9,15 +11,20 @@ import { PropiedadCreacionDTO } from '../propiedad';
 })
 export class FormPropiedadComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private vendedoresService: VendedoresService) { }
 
-  form: FormGroup = this.formBuilder.group({})
-  
-  @Output() formToSubmit: EventEmitter<PropiedadCreacionDTO> = new EventEmitter<PropiedadCreacionDTO>()
+    @Output() formToSubmit: EventEmitter<PropiedadCreacionDTO> = new EventEmitter<PropiedadCreacionDTO>()
+    
+    @Input() errores: string[] = []
 
-  @Input() errores: string[] = []
+    form: FormGroup = this.formBuilder.group({})
+    vendedores: VendedorDTO[] = []
   
   ngOnInit(): void {
+    this.obtenerVendedores()
+
     this.form = this.formBuilder.group({
       titulo: '',
       precio: '',
@@ -26,8 +33,15 @@ export class FormPropiedadComponent implements OnInit {
       habitaciones: '',
       wc: '',
       estacionamiento: '',
-      creado: '',
       vendedorId: '',
+    })
+  }
+
+  obtenerVendedores() {
+    this.vendedoresService.obtenerTodos()
+    .subscribe({
+      next: vendedores => {this.vendedores = vendedores},
+      error: errores => {console.log(errores)}
     })
   }
 

@@ -20,6 +20,5 @@ export interface PropiedadCreacionDTO {
     habitaciones: number
     wc: number
     estacionamiento: number
-    creado: Date
     vendedorId: number
 }

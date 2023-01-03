@@ -40,6 +40,8 @@ namespace BR_API.Controllers
         {
             var propiedad = mapper.Map<Propiedad>(propiedadCreacionDTO);
 
+            propiedad.Creado = DateTime.Now;
+
             await _context.Propiedades.AddAsync(propiedad);
             await _context.SaveChangesAsync();
 

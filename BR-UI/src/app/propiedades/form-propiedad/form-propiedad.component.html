@@ -35,8 +35,7 @@
 
         <select formControlName="vendedorId">
             <option value="" disabled selected >-- Seleccione --</option>
-            <option value="1">Juan</option>
-            <option value="2">Karen</option>
+            <option *ngFor="let vendedor of vendedores" [value]="vendedor.id">{{vendedor.nombre + ' ' + vendedor.apellido}}</option>
         </select>
     </fieldset>
 

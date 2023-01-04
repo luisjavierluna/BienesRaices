@@ -9,6 +9,7 @@ using BR_API;
 using BR_API.Entities;
 using BR_API.DTOs;
 using AutoMapper;
+using BR_API.Utilities;
 
 namespace BR_API.Controllers
 {
@@ -18,13 +19,17 @@ namespace BR_API.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly IMapper mapper;
+        private readonly IAlmacenadorArchivos almacenadorArchivos;
+        private readonly string contenedor = "propiedades";
 
         public PropiedadesController(
             ApplicationDbContext context,
-            IMapper mapper)
+            IMapper mapper,
+            IAlmacenadorArchivos almacenadorArchivos)
         {
             _context = context;
             this.mapper = mapper;
+            this.almacenadorArchivos = almacenadorArchivos;
         }
 
         [HttpGet]
@@ -42,10 +47,15 @@ namespace BR_API.Controllers
 
             propiedad.Creado = DateTime.Now;
 
+            if (propiedadCreacionDTO.Imagen != null)
+            {
+                propiedad.Imagen = await almacenadorArchivos.GuardarArchivo(contenedor, propiedadCreacionDTO.Imagen);
+            }
+
             await _context.Propiedades.AddAsync(propiedad);
             await _context.SaveChangesAsync();
 
-            return Ok(NoContent());
+            return NoContent();
         }
 
         [HttpGet("{id}")]

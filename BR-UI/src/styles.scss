@@ -19,6 +19,12 @@ $blanco: #FFFFFF;
 $gris: #e1e1e1;
 $grisOscuro: #333333;
 $errorsRed: #CC2936;
+$alertVerdeClaro: #d4edda;
+$alertVerdeOscuro: #1b5c2a;
+$alertRojoClaro: #f8d7da;
+$alertRojoOscuro: #873940;
+
+
 
 $separacion: 5rem;
 
@@ -247,8 +253,6 @@ body {
         }
     }
 
-    
-
     app-contacto,
     app-form-propiedad {
         .formulario {
@@ -259,6 +263,12 @@ body {
                 color: $blanco;
                 border: 1px solid $grisOscuro;
             }
+        }
+    }
+
+    app-registro-exitoso {
+        td {
+            color: white;
         }
     }
 

@@ -7,7 +7,7 @@ export interface Propiedad {
     habitaciones: number
     wc: number
     estacionamiento: number
-    creado: Date
+    // creado: Date
     vendedorId: number
     vendedor: string
 }

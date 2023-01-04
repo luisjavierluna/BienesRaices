@@ -10,9 +10,6 @@
         <label for="precio">Precio:</label>
         <input formControlName="precio" type="number" id="precio" placeholder="Precio propiedad">
 
-        <!-- <label for="imagen">Imagen:</label>
-        <input formControlName="imagen" type="file" id="imagen" accept="image/jpeg, image/png"> -->
-
         <app-input-img [urlCurrentImage]="propiedadAEditar.imagen" (selectedFile)="selectedFile($event)"></app-input-img>
 
         <label for="descripcion">Descripción:</label>

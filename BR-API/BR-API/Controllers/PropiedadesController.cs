@@ -55,10 +55,10 @@ namespace BR_API.Controllers
             await _context.Propiedades.AddAsync(propiedad);
             await _context.SaveChangesAsync();
 
-            return NoContent();
+            return Ok(propiedad);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public async Task<IActionResult> GetPropiedad(int id)
         {
             var propiedadExistente = await _context.Propiedades.FirstOrDefaultAsync(x => x.Id == id);

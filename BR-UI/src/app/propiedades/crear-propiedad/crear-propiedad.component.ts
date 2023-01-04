@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { parsearErroresAPI } from 'src/app/utilidades/utilidades';
-import { PropiedadCreacionDTO } from '../propiedad';
+import { PropiedadCreacionDTO, PropiedadDTO } from '../propiedad';
 import { PropiedadesService } from '../propiedades.service';
 
 @Component({
@@ -23,10 +23,11 @@ export class CrearPropiedadComponent implements OnInit {
   enviarFormulario(propiedad: PropiedadCreacionDTO) {
     this.propiedadesService.create(propiedad)
     .subscribe({
-      next: () => {this.router.navigate(['/propiedades'])},
-      error: errores => {
-        this.errores = parsearErroresAPI(errores)
-      }
+      next: (response: PropiedadDTO) => {
+        this.propiedadesService.propiedadCreada =  response
+        this.router.navigate(['/propiedades/registro-exitoso'])
+      },
+      error: errores => {this.errores = parsearErroresAPI(errores)}
     })
   }
 

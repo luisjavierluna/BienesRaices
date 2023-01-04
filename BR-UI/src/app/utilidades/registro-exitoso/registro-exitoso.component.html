@@ -1,0 +1,49 @@
+<main class="contenedor seccion">
+    <div class="propiedad-creada" *ngIf="propiedadCreadaDB.titulo">
+        <div class="registro-exitoso">
+            Se ha creado exitosamente la propiedad {{propiedadCreadaDB.titulo}} con las siguientes características:
+        </div>
+        
+        <fieldset>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>Precio: </td>
+                        <td>{{propiedadCreadaDB.precio}}</td>
+                    </tr>
+                    <tr>
+                        <td>Imagen: </td>
+                        <td><img [src]="propiedadCreadaDB.imagen" alt="Imagen"></td>
+                    </tr>
+                    <tr>
+                        <td>Descripción: </td>
+                        <td>{{propiedadCreadaDB.descripcion}}</td>
+                    </tr>
+                    <tr>
+                        <td>Habitaciones: </td>
+                        <td>{{propiedadCreadaDB.habitaciones}}</td>
+                    </tr>
+                    <tr>
+                        <td>Baños: </td>
+                        <td>{{propiedadCreadaDB.wc}}</td>
+                    </tr>
+                    <tr>
+                        <td>Estacionamientos: </td>
+                        <td>{{propiedadCreadaDB.estacionamiento}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </fieldset>
+
+        <button class="boton boton-verde" routerLink="/propiedades">Ir al Administrador</button>
+    </div>
+    
+    <div class="propiedad-nocreada" *ngIf="!propiedadCreadaDB?.titulo">
+        <div class="sin-registro">
+            Es necesario crear una nueva propiedad para ver sus características
+        </div>
+
+        <button class="boton boton-verde" routerLink="/propiedades">Ir al Administrador</button>
+    </div>
+</main>
+

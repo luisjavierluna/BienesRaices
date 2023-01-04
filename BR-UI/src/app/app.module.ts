@@ -21,6 +21,7 @@ import { FormPropiedadComponent } from './propiedades/form-propiedad/form-propie
 import { BorrarPropiedadComponent } from './propiedades/borrar-propiedad/borrar-propiedad.component';
 import { MostrarErroresComponent } from './mostrar-errores/mostrar-errores.component';
 import { InputImgComponent } from './utilidades/input-img/input-img.component';
+import { RegistroExitosoComponent } from './utilidades/registro-exitoso/registro-exitoso.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { InputImgComponent } from './utilidades/input-img/input-img.component';
     FormPropiedadComponent,
     BorrarPropiedadComponent,
     MostrarErroresComponent,
-    InputImgComponent
+    InputImgComponent,
+    RegistroExitosoComponent
   ],
   imports: [
     BrowserModule,

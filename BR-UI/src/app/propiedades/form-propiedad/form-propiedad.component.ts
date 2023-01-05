@@ -30,6 +30,7 @@ export class FormPropiedadComponent implements OnInit {
       estacionamiento: 0,
       vendedorId: 0,
       vendedorNombre: '',
+      vendedorApellido: '',
     }
 
     form: FormGroup = this.formBuilder.group({})

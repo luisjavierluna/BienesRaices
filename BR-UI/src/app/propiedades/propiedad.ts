@@ -23,6 +23,7 @@ export interface PropiedadDTO {
     estacionamiento: number
     vendedorId: number
     vendedorNombre: string
+    vendedorApellido: string
 }
 
 export interface PropiedadCreacionDTO {

@@ -24,6 +24,11 @@ export class PropiedadesService {
     estacionamiento: 0,
     vendedorId: 0,
     vendedorNombre: '',
+    vendedorApellido: ''
+  }
+
+  obtenerTodos(): Observable<PropiedadDTO[]> {
+    return this.http.get<PropiedadDTO[]>(this.apiURL)
   }
 
   create(propiedad: PropiedadCreacionDTO):Observable<PropiedadDTO> {

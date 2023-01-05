@@ -10,6 +10,7 @@ using BR_API.Entities;
 using BR_API.DTOs;
 using AutoMapper;
 using BR_API.Utilities;
+using AutoMapper.QueryableExtensions;
 
 namespace BR_API.Controllers
 {
@@ -35,7 +36,9 @@ namespace BR_API.Controllers
         [HttpGet]
         public async Task<IActionResult> GetPropiedades()
         {
-            var propiedades = await _context.Propiedades.ToListAsync();
+            var propiedades = await _context.Propiedades
+                .ProjectTo<PropiedadDTO>(mapper.ConfigurationProvider)
+                .ToListAsync();
 
             return Ok(propiedades);
         }

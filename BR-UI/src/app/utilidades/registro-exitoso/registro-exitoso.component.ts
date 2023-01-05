@@ -22,6 +22,7 @@ export class RegistroExitosoComponent implements OnInit {
     estacionamiento: 0,
     vendedorId: 0,
     vendedorNombre: '',
+    vendedorApellido: ''
   }
  
   propiedadId: number = 0

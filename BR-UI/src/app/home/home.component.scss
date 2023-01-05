@@ -80,6 +80,14 @@
     @include boton($verde, inline-block)
 }
 
+.boton-rojo-block {
+    @include boton($errorsRed, block)
+}
+
+.boton-verde-block {
+    @include boton($verde, block)
+}
+
 .alinear-derecha {
     display: flex;
     justify-content: flex-end;

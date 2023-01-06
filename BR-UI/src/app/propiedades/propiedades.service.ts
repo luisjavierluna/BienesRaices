@@ -31,13 +31,18 @@ export class PropiedadesService {
     return this.http.get<PropiedadDTO[]>(this.apiURL)
   }
 
-  create(propiedad: PropiedadCreacionDTO):Observable<PropiedadDTO> {
+  crear(propiedad: PropiedadCreacionDTO):Observable<PropiedadDTO> {
     const formData = this.buildFormData(propiedad)
     return this.http.post<PropiedadDTO>(this.apiURL, formData)
   }
 
   obtenerPorId(id: number):Observable<PropiedadDTO> {
     return this.http.get<PropiedadDTO>(`${this.apiURL}/${id}`)
+  }
+
+  actualizar(id: number, propiedad: PropiedadCreacionDTO):Observable<PropiedadDTO> {
+    const formData = this.buildFormData(propiedad)
+    return this.http.put<PropiedadDTO>(`${this.apiURL}/${id}`, formData)
   }
 
   private buildFormData(propiedad: PropiedadCreacionDTO): FormData {

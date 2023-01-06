@@ -21,8 +21,8 @@
                 <td><img [src]="propiedad.imagen" class="imagen-tabla"></td>
                 <td>${{propiedad.precio}}</td>
                 <td>
-                    <a href="#" class="boton-rojo-block">Eliminar</a>
-                    <a href="#" class="boton-amarillo-block">Actualizar</a>
+                    <a class="boton-rojo-block">Eliminar</a>
+                    <a class="boton-amarillo-block" routerLink="/propiedades/editar/{{propiedad.id}}">Actualizar</a>
                 </td>
             </tr>
         </tbody>

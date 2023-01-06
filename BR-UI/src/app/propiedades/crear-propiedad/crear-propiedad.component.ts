@@ -21,7 +21,7 @@ export class CrearPropiedadComponent implements OnInit {
   }
 
   enviarFormulario(propiedad: PropiedadCreacionDTO) {
-    this.propiedadesService.create(propiedad)
+    this.propiedadesService.crear(propiedad)
     .subscribe({
       next: (response: PropiedadDTO) => {
         this.propiedadesService.propiedadCreada =  response

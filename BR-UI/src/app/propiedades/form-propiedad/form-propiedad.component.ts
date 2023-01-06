@@ -50,12 +50,16 @@ export class FormPropiedadComponent implements OnInit {
       estacionamiento: '',
       vendedorId: '',
     })
+
+    if(this.propiedadAEditar.id > 0) this.form.patchValue(this.propiedadAEditar)
   }
 
   obtenerVendedores() {
     this.vendedoresService.obtenerTodos()
     .subscribe({
-      next: vendedores => {this.vendedores = vendedores},
+      next: vendedores => {
+        this.vendedores = vendedores
+      },
       error: errores => {console.log(errores)}
     })
   }

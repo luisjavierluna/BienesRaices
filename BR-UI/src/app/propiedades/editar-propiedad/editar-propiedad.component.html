@@ -1,5 +1,12 @@
 <main class="contenedor seccion">
     <h1>Actualizar</h1>
+
+    <a routerLink="/propiedades" class="boton boton-verde">Volver</a>
     
-    <app-form-propiedad></app-form-propiedad>
+    <app-form-propiedad
+    *ngIf="propiedadAEditar.id > 0"
+    [errores]="errores"
+    [propiedadAEditar]="propiedadAEditar"
+    (formToSubmit)="enviarFormulario($event)"
+    ></app-form-propiedad>
 </main>

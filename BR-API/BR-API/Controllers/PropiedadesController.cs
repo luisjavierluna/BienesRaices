@@ -74,33 +74,27 @@ namespace BR_API.Controllers
             return Ok(propiedadExistente);
         }
 
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutPropiedad(int id, Propiedad propiedad)
+        [HttpPut("{id:int}")]
+        public async Task<IActionResult> PutPropiedad([FromForm] PropiedadCreacionDTO nuevaPropiedad, int id)
         {
-            if (id != propiedad.Id)
+            var propiedadActualizar = await _context.Propiedades.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (propiedadActualizar == null)
             {
-                return BadRequest();
+                return NotFound("Propiedad no encontrada");
             }
 
-            _context.Entry(propiedad).State = EntityState.Modified;
+            propiedadActualizar = mapper.Map(nuevaPropiedad, propiedadActualizar);
 
-            try
+            if (nuevaPropiedad.Imagen != null)
             {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!PropiedadExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
+                propiedadActualizar.Imagen = await almacenadorArchivos
+                    .EditarArchivo(contenedor, nuevaPropiedad.Imagen, propiedadActualizar.Imagen);
             }
 
-            return NoContent();
+            await _context.SaveChangesAsync();
+
+            return Ok(propiedadActualizar);
         }
 
         

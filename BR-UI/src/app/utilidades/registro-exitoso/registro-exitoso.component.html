@@ -1,34 +1,38 @@
 <main class="contenedor seccion">
     <div class="propiedad-creada" *ngIf="propiedadCreadaDB.titulo">
         <div class="registro-exitoso">
-            Se ha creado exitosamente la propiedad {{propiedadCreadaDB.titulo}} con las siguientes características:
+            La acción se ha llevado acabo correctamente, por favor, revisa los detalles:
         </div>
         
         <fieldset>
             <table>
                 <tbody>
                     <tr>
-                        <td>Precio: </td>
+                        <td><span>Título</span>: </td>
+                        <td>{{propiedadCreadaDB.titulo}}</td>
+                    </tr>
+                    <tr>
+                        <td><span>Precio</span>: </td>
                         <td>{{propiedadCreadaDB.precio}}</td>
                     </tr>
                     <tr>
-                        <td>Imagen: </td>
+                        <td><span>Imagen</span>: </td>
                         <td><img [src]="propiedadCreadaDB.imagen" alt="Imagen"></td>
                     </tr>
                     <tr>
-                        <td>Descripción: </td>
+                        <td><span>Descripción</span>: </td>
                         <td>{{propiedadCreadaDB.descripcion}}</td>
                     </tr>
                     <tr>
-                        <td>Habitaciones: </td>
+                        <td><span>Habitaciones</span>: </td>
                         <td>{{propiedadCreadaDB.habitaciones}}</td>
                     </tr>
                     <tr>
-                        <td>Baños: </td>
+                        <td><span>Baños</span>: </td>
                         <td>{{propiedadCreadaDB.wc}}</td>
                     </tr>
                     <tr>
-                        <td>Estacionamientos: </td>
+                        <td><span>Estacionamientos</span>: </td>
                         <td>{{propiedadCreadaDB.estacionamiento}}</td>
                     </tr>
                 </tbody>

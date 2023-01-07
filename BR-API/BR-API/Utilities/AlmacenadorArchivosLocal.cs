@@ -55,7 +55,7 @@
             return Task.CompletedTask;
         }
 
-        public async Task<string> EditarArchivos(string contenedor, IFormFile archivo, string ruta)
+        public async Task<string> EditarArchivo(string contenedor, IFormFile archivo, string ruta)
         {
             await BorrarArchivo(ruta, contenedor);
             return await GuardarArchivo(contenedor, archivo);

@@ -49,7 +49,10 @@ export class EditarPropiedadComponent implements OnInit {
   enviarFormulario(propiedad: PropiedadCreacionDTO) {
     this.propiedadesService.actualizar(this.propiedadAEditar.id, propiedad)
     .subscribe({
-      next: () => {this.router.navigate(['/propiedades/registro-exitoso'])},
+      next: (response: PropiedadDTO) => {
+        this.propiedadesService.propiedadCreada =  response
+        this.router.navigate(['/propiedades/registro-exitoso'])
+      },
       error: errores => {this.errores = parsearErroresAPI(errores)}
     })
   }

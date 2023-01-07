@@ -21,7 +21,7 @@ const routes: Routes = [
       {path: '', component: HomeComponent},
       {path: 'nosotros', component: NosotrosComponent},
       {path: 'anuncios', component: AnunciosComponent},
-      {path: 'anuncio', component: AnuncioComponent},
+      {path: 'anuncios/anuncio/:id', component: AnuncioComponent},
       {path: 'blog', component: BlogComponent},
       {path: 'entrada', component: EntradaComponent},
       {path: 'contacto', component: ContactoComponent},

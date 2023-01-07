@@ -32,99 +32,37 @@
     <h2>Casas y Depas en venta</h2>
 
     <div class="contenedor-anuncios">
-        <div class="anuncio">
-            <picture>
-                <source srcset="assets/img/anuncio1.webp" type="image/webp">
-                <source srcset="assets/img/anuncio1.jpg" type="image/jpg">
-                <img loading="lazy" src="assets/img/anuncio1.jpg" alt="anuncio">
-            </picture>
+        
+        <div class="anuncio" *ngFor="let anuncio of anunciosPropiedades">
+            <img loading="lazy" [src]="anuncio.imagen" alt="anuncio">
 
             <div class="contenido-anuncio">
-                <h3>Casa de Lujo en el Lago</h3>
-                <p>Casa en el lago con excelente vista, acabados de lujo a un excelente precio</p>
-                <p class="precio">$3,000,000</p>
+                <h3>{{anuncio.titulo}}</h3>
+                <p>{{anuncio.descripcion.slice(0, 100)}}...</p>
+                <p class="precio">${{anuncio.precio}}</p>
 
                 <ul class="iconos-caracteristicas">
                     <li>
                         <img class="icono" loading="lazy" src="assets/img/icono_wc.svg" alt="icono wc">
-                        <p>3</p>
+                        <p>{{anuncio.habitaciones}}</p>
                     </li>
                     <li>
                         <img class="icono" loading="lazy" src="assets/img/icono_estacionamiento.svg" alt="icono estacionamiento">
-                        <p>3</p>
+                        <p>{{anuncio.estacionamiento}}</p>
                     </li>
                     <li>
                         <img class="icono" loading="lazy" src="assets/img/icono_dormitorio.svg" alt="icono habitaciones">
-                        <p>4</p>
+                        <p>{{anuncio.wc}}</p>
                     </li>
                 </ul>
-                <a routerLink="/navegacion/anuncio" class="boton-amarillo-block">Ver Propiedad</a>
+                <a routerLink="/anuncios/anuncio/{{anuncio.id}}" class="boton-amarillo-block">Ver Propiedad</a>
             </div><!-- .contenido-anuncio -->
         </div><!-- .anuncio -->
-
-        <div class="anuncio">
-            <picture>
-                <source srcset="assets/img/anuncio2.webp" type="image/webp">
-                <source srcset="assets/img/anuncio2.jpg" type="image/jpg">
-                <img loading="lazy" src="assets/img/anuncio1.jpg" alt="anuncio">
-            </picture>
-
-            <div class="contenido-anuncio">
-                <h3>Casa terminados de lujo</h3>
-                <p>Casa en el lago con excelente vista, acabados de lujo a un excelente precio</p>
-                <p class="precio">$3,000,000</p>
-
-                <ul class="iconos-caracteristicas">
-                    <li>
-                        <img class="icono" loading="lazy" src="assets/img/icono_wc.svg" alt="icono wc">
-                        <p>3</p>
-                    </li>
-                    <li>
-                        <img class="icono" loading="lazy" src="assets/img/icono_estacionamiento.svg" alt="icono estacionamiento">
-                        <p>3</p>
-                    </li>
-                    <li>
-                        <img class="icono" loading="lazy" src="assets/img/icono_dormitorio.svg" alt="icono habitaciones">
-                        <p>4</p>
-                    </li>
-                </ul>
-                <a routerLink="/navegacion/anuncio" class="boton-amarillo-block">Ver Propiedad</a>
-            </div><!-- .contenido-anuncio -->
-        </div><!-- .anuncio -->
-
-        <div class="anuncio">
-            <picture>
-                <source srcset="assets/img/anuncio3.webp" type="image/webp">
-                <source srcset="assets/img/anuncio3.jpg" type="image/jpeg">
-                <img loading="lazy" src="assets/img/anuncio1.jpg" alt="anuncio">
-            </picture>
-
-            <div class="contenido-anuncio">
-                <h3>Casa con Alberca</h3>
-                <p>Casa en el lago con excelente vista, acabados de lujo a un excelente precio</p>
-                <p class="precio">$3,000,000</p>
-
-                <ul class="iconos-caracteristicas">
-                    <li>
-                        <img class="icono" loading="lazy" src="assets/img/icono_wc.svg" alt="icono wc">
-                        <p>3</p>
-                    </li>
-                    <li>
-                        <img class="icono" loading="lazy" src="assets/img/icono_estacionamiento.svg" alt="icono estacionamiento">
-                        <p>3</p>
-                    </li>
-                    <li>
-                        <img class="icono" loading="lazy" src="assets/img/icono_dormitorio.svg" alt="icono habitaciones">
-                        <p>4</p>
-                    </li>
-                </ul>
-                <a routerLink="/navegacion/anuncio" class="boton-amarillo-block">Ver Propiedad</a>
-            </div><!-- .contenido-anuncio -->
-        </div><!-- .anuncio -->
+        
     </div><!-- .contenedor-anuncios -->
 
     <div class="alinear-derecha">
-        <a routerLink="/anuncio" class="boton-verde">Ver Todas</a>
+        <a routerLink="/anuncios" class="boton-verde">Ver Todas</a>
     </div>
 </section>
 

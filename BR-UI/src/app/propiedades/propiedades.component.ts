@@ -24,4 +24,14 @@ export class PropiedadesComponent implements OnInit {
     })
   }
 
+  eliminar(id: number) {
+    this.propiedadesService.eliminar(id)
+    .subscribe({
+      next: () => {this.recargarPagina()}
+    })
+  }
+
+  recargarPagina() {
+    window.location.reload()
+  }
 }

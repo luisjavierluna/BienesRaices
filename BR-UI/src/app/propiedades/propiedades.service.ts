@@ -45,6 +45,10 @@ export class PropiedadesService {
     return this.http.put<PropiedadDTO>(`${this.apiURL}/${id}`, formData)
   }
 
+  eliminar(id: number) {
+    return this.http.delete(`${this.apiURL}/${id}`)
+  }
+
   private buildFormData(propiedad: PropiedadCreacionDTO): FormData {
     const formData = new FormData()
     formData.append('titulo', propiedad.titulo)

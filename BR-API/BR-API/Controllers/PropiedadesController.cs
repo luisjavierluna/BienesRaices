@@ -99,24 +99,22 @@ namespace BR_API.Controllers
 
         
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeletePropiedad(int id)
         {
-            var propiedad = await _context.Propiedades.FindAsync(id);
-            if (propiedad == null)
+            var propiedadEliminar = await _context.Propiedades.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (propiedadEliminar == null)
             {
-                return NotFound();
+                return NotFound("Propiedad no encontrada");
             }
 
-            _context.Propiedades.Remove(propiedad);
+            _context.Propiedades.Remove(propiedadEliminar);
             await _context.SaveChangesAsync();
 
-            return NoContent();
-        }
+            await almacenadorArchivos.BorrarArchivo(propiedadEliminar.Imagen, contenedor);
 
-        private bool PropiedadExists(int id)
-        {
-            return _context.Propiedades.Any(e => e.Id == id);
+            return NoContent();
         }
     }
 }

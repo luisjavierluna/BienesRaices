@@ -1,11 +1,12 @@
 ﻿using BR_API.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System.Runtime.Intrinsics.X86;
 using System.Security.Principal;
 
 namespace BR_API
 {
-    public class ApplicationDbContext : DbContext
+    public class ApplicationDbContext : IdentityDbContext
     {
         public DbSet<Propiedad> Propiedades { get; set; }
         public DbSet<Vendedor> Vendedores { get; set; }

@@ -9,7 +9,7 @@
             <div class="contenido-anuncio">
                 <h3>{{anuncio.titulo}}</h3>
                 <p>{{anuncio.descripcion.slice(0, 100)}}...</p>
-                <p class="precio">${{anuncio.precio}}</p>
+                <p class="precio">{{anuncio.precio | currency}}</p>
 
                 <ul class="iconos-caracteristicas">
                     <li>

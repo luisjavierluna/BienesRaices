@@ -1,45 +1,28 @@
 <main class="contenedor seccion contenido-centrado">
     
-    <h1>Casa en venta frente al bosque</h1>
+    <h1>{{anuncio.titulo}}</h1>
 
-    <picture>
-        <source srcset="assets/img/destacada.webp" type="image/webp">
-        <source srcset="assets/img/destacada.jpg" type="image/jpeg">
-        <img loading="lazy" src="assets/img/destacada.jpg" alt="Imagen de la propiedad">
-    </picture>
+    <img loading="lazy" [src]="anuncio.imagen" alt="Imagen de la propiedad">
 
     <div class="resumen-propiedad">
-        <p class="precio">$3,000,000</p>
+        <p class="precio">{{anuncio.precio | currency}}</p>
         <ul class="iconos-caracteristicas">
             <li>
                 <img class="icono" loading="lazy" src="assets/img/icono_wc.svg" alt="icono wc">
-                <p>3</p>
+                <p>{{anuncio.wc}}</p>
             </li>
             <li>
                 <img class="icono" loading="lazy" src="assets/img/icono_estacionamiento.svg" alt="icono estacionamiento">
-                <p>3</p>
+                <p>{{anuncio.estacionamiento}}</p>
             </li>
             <li>
                 <img class="icono" loading="lazy" src="assets/img/icono_dormitorio.svg" alt="icono habitaciones">
-                <p>4</p>
+                <p>{{anuncio.habitaciones}}</p>
             </li>
         </ul>
 
         <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi mollitia quo harum error, 
-            fuga quis id inventore. Quasi, accusamus beatae nisi ad maxime nostrum ab neque officia 
-            nam consequuntur voluptatibus? Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            fuga quis id inventore. Quasi, accusamus beatae nisi ad maxime nostrum ab neque officia 
-            nam consequuntur voluptatibus? Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            fuga quis id inventore. Quasi, accusamus beatae nisi ad maxime nostrum ab neque officia 
-            nam consequuntur voluptatibus? Quasi mollitia quo harum error, Quasi mollitia quo harum error, 
-        </p>
-
-        <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint omnis ipsum velit voluptatem 
-            quaerat pariatur repellat, ad molestias neque consequuntur quasi eum a quia voluptatum! 
-            Consequatur quam et porro molestias.Consequatur quam et porro molestias.Consequatur quam 
-            et porro molestias.
+            {{anuncio.descripcion}}
         </p>
     </div>
     

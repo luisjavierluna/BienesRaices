@@ -27,3 +27,21 @@
         </ng-container>
     </div>
 </header>
+
+<div class="sesion-navbar">
+    <div class="contenedor">
+        <app-autorizado>
+            <ng-container autorizado>
+                <span>Hola, {{seguridadService.obtenerCampoJWT('email')}}</span>
+                <span> | </span>
+                <a (click)="seguridadService.cerrarSesion()">Cerrar Sesión</a>
+            </ng-container>
+    
+            <ng-container noAutorizado>
+                <a routerLink="/iniciar-sesion">Iniciar Sesión</a>
+                <span> | </span>
+                <a routerLink="/registrarse" >Registrarse</a>
+            </ng-container>
+        </app-autorizado>
+    </div>
+</div>

@@ -24,6 +24,8 @@ import { MostrarErroresComponent } from './mostrar-errores/mostrar-errores.compo
 import { InputImgComponent } from './utilidades/input-img/input-img.component';
 import { RegistroExitosoComponent } from './utilidades/registro-exitoso/registro-exitoso.component';
 import { IniciarSesionComponent } from './seguridad/iniciar-sesion/iniciar-sesion.component';
+import { RegistrarseComponent } from './seguridad/registrarse/registrarse.component';
+import { AutorizadoComponent } from './seguridad/autorizado/autorizado.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { IniciarSesionComponent } from './seguridad/iniciar-sesion/iniciar-sesio
     MostrarErroresComponent,
     InputImgComponent,
     RegistroExitosoComponent,
-    IniciarSesionComponent
+    IniciarSesionComponent,
+    RegistrarseComponent,
+    AutorizadoComponent
   ],
   imports: [
     BrowserModule,

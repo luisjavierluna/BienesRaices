@@ -1,7 +1,7 @@
 <main class="contenedor seccion contenido-centrado">
-    <h1>Iniciar Sesión</h1>
+    <h1>Registrarse</h1>
 
-    <form class="formulario" [formGroup]="form" (submit)="iniciarSesion(form.value)">
+    <form class="formulario" [formGroup]="form" (submit)="registrarse(form.value)">
         <fieldset>
             <legend>Email y Password</legend>
 
@@ -12,6 +12,6 @@
             <input formControlName="password" type="password" placeholder="Tu Password" id="password">
         </fieldset>
 
-        <input type="submit" value="Iniciar Sesión" class="boton boton-verde">
+        <input type="submit" value="Registrarse" class="boton boton-verde">
     </form>
 </main>

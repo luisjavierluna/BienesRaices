@@ -5,11 +5,11 @@ import { CredencialesUsuario } from '../seguridad';
 import { SeguridadService } from '../seguridad.service';
 
 @Component({
-  selector: 'app-iniciar-sesion',
-  templateUrl: './iniciar-sesion.component.html',
-  styleUrls: ['./iniciar-sesion.component.scss']
+  selector: 'app-registrarse',
+  templateUrl: './registrarse.component.html',
+  styleUrls: ['./registrarse.component.scss']
 })
-export class IniciarSesionComponent implements OnInit {
+export class RegistrarseComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
@@ -25,8 +25,8 @@ export class IniciarSesionComponent implements OnInit {
     })
   }
 
-  iniciarSesion(credenciales: CredencialesUsuario) {
-    this.seguridadService.iniciarSesion(credenciales)
+  registrarse(credenciales: CredencialesUsuario) {
+    this.seguridadService.registrarse(credenciales)
     .subscribe({
       next: response => {
         this.seguridadService.guardarToken(response)

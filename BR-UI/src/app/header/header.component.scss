@@ -137,3 +137,28 @@
         width: 5rem;
     }
 }
+
+.sesion-navbar {
+    height: 4rem;
+    background-color: $amarillo;
+    display: flex;
+    align-items: center;
+
+    app-autorizado {
+        display: flex;
+        justify-content: center;
+        
+        span,
+        a {
+            color: $blanco;
+            font-weight: $bold;
+            margin: 0 1rem;
+        }
+
+        a {
+            cursor: pointer;
+        }
+    }
+}
+
+

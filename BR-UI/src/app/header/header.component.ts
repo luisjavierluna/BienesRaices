@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { DarkModeService } from '../dark-mode.service';
+import { SeguridadService } from '../seguridad/seguridad.service';
 
 @Component({
   selector: 'app-header',
@@ -12,7 +13,8 @@ export class HeaderComponent implements OnInit {
   constructor(
     private renderer2: Renderer2,
     private darkModeService: DarkModeService,
-    private router: Router) { }
+    private router: Router,
+    public seguridadService: SeguridadService) { }
   
   @ViewChild('navegacion') navegacion?: ElementRef
   body =  document.body

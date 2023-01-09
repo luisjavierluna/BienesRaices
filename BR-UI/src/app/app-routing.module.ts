@@ -13,6 +13,7 @@ import { CrearPropiedadComponent } from './propiedades/crear-propiedad/crear-pro
 import { EditarPropiedadComponent } from './propiedades/editar-propiedad/editar-propiedad.component';
 import { PropiedadesComponent } from './propiedades/propiedades.component';
 import { IniciarSesionComponent } from './seguridad/iniciar-sesion/iniciar-sesion.component';
+import { RegistrarseComponent } from './seguridad/registrarse/registrarse.component';
 import { RegistroExitosoComponent } from './utilidades/registro-exitoso/registro-exitoso.component';
 
 const routes: Routes = [
@@ -33,6 +34,7 @@ const routes: Routes = [
       {path: 'propiedades/borrar/:id', component: BorrarPropiedadComponent},
       {path: 'propiedades/registro-exitoso', component: RegistroExitosoComponent},
 
+      {path: 'registrarse', component: RegistrarseComponent},
       {path: 'iniciar-sesion', component: IniciarSesionComponent},
     ]},
 ];

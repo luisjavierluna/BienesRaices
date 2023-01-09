@@ -26,8 +26,6 @@ $alertRojoOscuro: #873940;
 $alertAmarilloClaro: #fff3cd;
 $alertAmarilloOscuro: #94751d;
 
-
-
 $separacion: 5rem;
 
 // Fuentes
@@ -146,11 +144,11 @@ h4 {
     max-width: 80rem;
 }
 
-
 // Contacto
 
 app-contacto,
-app-form-propiedad {
+app-form-propiedad,
+app-iniciar-sesion {
     .formulario {
         fieldset {
             border-color: darken($gris, 25);
@@ -221,7 +219,8 @@ body {
     app-blog,
     app-entrada,
     app-contacto,
-    app-form-propiedad {
+    app-form-propiedad,
+    app-iniciar-sesion {
         
         p, 
         blockquote,
@@ -256,7 +255,8 @@ body {
     }
 
     app-contacto,
-    app-form-propiedad {
+    app-form-propiedad,
+    app-iniciar-sesion {
         .formulario {
             input:not([type="submit"]),
             textarea, 

@@ -23,6 +23,7 @@ import { BorrarPropiedadComponent } from './propiedades/borrar-propiedad/borrar-
 import { MostrarErroresComponent } from './mostrar-errores/mostrar-errores.component';
 import { InputImgComponent } from './utilidades/input-img/input-img.component';
 import { RegistroExitosoComponent } from './utilidades/registro-exitoso/registro-exitoso.component';
+import { IniciarSesionComponent } from './seguridad/iniciar-sesion/iniciar-sesion.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { RegistroExitosoComponent } from './utilidades/registro-exitoso/registro
     BorrarPropiedadComponent,
     MostrarErroresComponent,
     InputImgComponent,
-    RegistroExitosoComponent
+    RegistroExitosoComponent,
+    IniciarSesionComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { parsearErroresAPI } from 'src/app/utilidades/utilidades';
 import { CredencialesUsuario } from '../seguridad';
 import { SeguridadService } from '../seguridad.service';
 
@@ -12,17 +13,12 @@ import { SeguridadService } from '../seguridad.service';
 export class RegistrarseComponent implements OnInit {
 
   constructor(
-    private formBuilder: FormBuilder,
     private seguridadService: SeguridadService,
     private router: Router) { }
 
-  form: FormGroup = this.formBuilder.group({})
+  errores: string[] = []
 
   ngOnInit(): void {
-    this.form = this.formBuilder.group({
-      email: ['', {validators: [Validators.required, Validators.email]}],
-      password: ['', {validators: [Validators.required]}]
-    })
   }
 
   registrarse(credenciales: CredencialesUsuario) {
@@ -32,7 +28,9 @@ export class RegistrarseComponent implements OnInit {
         this.seguridadService.guardarToken(response)
         this.router.navigate(['/'])
       },
-      error: errores => {console.log(errores)}
+      error: errores => {
+        this.errores = parsearErroresAPI(errores)
+      }
     })
   }
 

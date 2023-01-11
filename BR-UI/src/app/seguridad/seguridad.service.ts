@@ -36,6 +36,7 @@ export class SeguridadService {
   cerrarSesion() {
     localStorage.removeItem(this.llaveToken)
     localStorage.removeItem(this.llaveExpiracion)
+    window.location.reload()
   }
 
   obtenerCampoJWT(field: string): string {

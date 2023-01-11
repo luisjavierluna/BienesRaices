@@ -144,6 +144,11 @@ h4 {
     max-width: 80rem;
 }
 
+*:disabled {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
 // Contacto
 
 app-contacto,

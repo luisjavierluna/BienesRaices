@@ -26,6 +26,7 @@ import { RegistroExitosoComponent } from './utilidades/registro-exitoso/registro
 import { IniciarSesionComponent } from './seguridad/iniciar-sesion/iniciar-sesion.component';
 import { RegistrarseComponent } from './seguridad/registrarse/registrarse.component';
 import { AutorizadoComponent } from './seguridad/autorizado/autorizado.component';
+import { FormAutenticacionComponent } from './seguridad/form-autenticacion/form-autenticacion.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { AutorizadoComponent } from './seguridad/autorizado/autorizado.component
     RegistroExitosoComponent,
     IniciarSesionComponent,
     RegistrarseComponent,
-    AutorizadoComponent
+    AutorizadoComponent,
+    FormAutenticacionComponent
   ],
   imports: [
     BrowserModule,

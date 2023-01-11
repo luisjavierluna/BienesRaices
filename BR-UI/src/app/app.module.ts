@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule} from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 import { ReactiveFormsModule} from '@angular/forms'
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2'
 
@@ -27,6 +27,7 @@ import { IniciarSesionComponent } from './seguridad/iniciar-sesion/iniciar-sesio
 import { RegistrarseComponent } from './seguridad/registrarse/registrarse.component';
 import { AutorizadoComponent } from './seguridad/autorizado/autorizado.component';
 import { FormAutenticacionComponent } from './seguridad/form-autenticacion/form-autenticacion.component';
+import { SeguridadInterceptorService } from './seguridad/seguridad-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,11 @@ import { FormAutenticacionComponent } from './seguridad/form-autenticacion/form-
     ReactiveFormsModule,
     SweetAlert2Module.forRoot()
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: SeguridadInterceptorService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

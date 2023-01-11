@@ -11,6 +11,8 @@ using BR_API.DTOs;
 using AutoMapper;
 using BR_API.Utilities;
 using AutoMapper.QueryableExtensions;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace BR_API.Controllers
 {
@@ -44,6 +46,7 @@ namespace BR_API.Controllers
         }
 
         [HttpPost]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> PostPropiedad([FromForm]PropiedadCreacionDTO propiedadCreacionDTO)
         {
             var propiedad = mapper.Map<Propiedad>(propiedadCreacionDTO);
@@ -62,6 +65,7 @@ namespace BR_API.Controllers
         }
 
         [HttpGet("{id:int}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> GetPropiedad(int id)
         {
             var propiedadExistente = await _context.Propiedades.FirstOrDefaultAsync(x => x.Id == id);
@@ -75,6 +79,7 @@ namespace BR_API.Controllers
         }
 
         [HttpPut("{id:int}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> PutPropiedad([FromForm] PropiedadCreacionDTO nuevaPropiedad, int id)
         {
             var propiedadActualizar = await _context.Propiedades.FirstOrDefaultAsync(x => x.Id == id);
@@ -100,6 +105,7 @@ namespace BR_API.Controllers
         
 
         [HttpDelete("{id:int}")]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> DeletePropiedad(int id)
         {
             var propiedadEliminar = await _context.Propiedades.FirstOrDefaultAsync(x => x.Id == id);

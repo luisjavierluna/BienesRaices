@@ -12,6 +12,7 @@ import { BorrarPropiedadComponent } from './propiedades/borrar-propiedad/borrar-
 import { CrearPropiedadComponent } from './propiedades/crear-propiedad/crear-propiedad.component';
 import { EditarPropiedadComponent } from './propiedades/editar-propiedad/editar-propiedad.component';
 import { PropiedadesComponent } from './propiedades/propiedades.component';
+import { EsAdminGuard } from './seguridad/es-admin.guard';
 import { IniciarSesionComponent } from './seguridad/iniciar-sesion/iniciar-sesion.component';
 import { RegistrarseComponent } from './seguridad/registrarse/registrarse.component';
 import { RegistroExitosoComponent } from './utilidades/registro-exitoso/registro-exitoso.component';
@@ -28,11 +29,11 @@ const routes: Routes = [
       {path: 'entrada', component: EntradaComponent},
       {path: 'contacto', component: ContactoComponent},
 
-      {path: 'propiedades', component: PropiedadesComponent},
-      {path: 'propiedades/crear', component: CrearPropiedadComponent},
-      {path: 'propiedades/editar/:id', component: EditarPropiedadComponent},
-      {path: 'propiedades/borrar/:id', component: BorrarPropiedadComponent},
-      {path: 'propiedades/registro-exitoso', component: RegistroExitosoComponent},
+      {path: 'propiedades', component: PropiedadesComponent, canActivate: [EsAdminGuard]},
+      {path: 'propiedades/crear', component: CrearPropiedadComponent, canActivate: [EsAdminGuard]},
+      {path: 'propiedades/editar/:id', component: EditarPropiedadComponent, canActivate: [EsAdminGuard]},
+      {path: 'propiedades/borrar/:id', component: BorrarPropiedadComponent, canActivate: [EsAdminGuard]},
+      {path: 'propiedades/registro-exitoso', component: RegistroExitosoComponent, canActivate: [EsAdminGuard]},
 
       {path: 'registrarse', component: RegistrarseComponent},
       {path: 'iniciar-sesion', component: IniciarSesionComponent},

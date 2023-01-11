@@ -15,7 +15,7 @@ export class SeguridadService {
   private readonly  llaveToken = 'token'
   private readonly  llaveExpiracion = 'llave-expiracion'
 
-  sesionIniciadaActiva() {
+  sesionIniciadaActiva(): boolean {
     const token = localStorage.getItem(this.llaveToken)
 
     if (!token) {
@@ -59,5 +59,9 @@ export class SeguridadService {
   guardarToken(respuestaAutenticacion: RespuestaAutenticacion) {
     localStorage.setItem(this.llaveToken, respuestaAutenticacion.token)
     localStorage.setItem(this.llaveExpiracion, respuestaAutenticacion.expiracion.toString())
+  }
+
+  obtenerToken(){
+    return localStorage.getItem(this.llaveToken)
   }
 }

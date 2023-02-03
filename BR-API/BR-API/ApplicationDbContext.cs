@@ -8,6 +8,7 @@ namespace BR_API
 {
     public class ApplicationDbContext : IdentityDbContext
     {
+        public DbSet<AppUser> AppUsers { get; set; }
         public DbSet<Propiedad> Propiedades { get; set; }
         public DbSet<Vendedor> Vendedores { get; set; }
 
@@ -15,6 +16,13 @@ namespace BR_API
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<AppUser>(user =>
+            {
+                user.HasIndex(x => x.Name).IsUnique();
+
+                user.Property(x => x.Name).IsRequired();
+            });
+
             modelBuilder.Entity<Propiedad>(propiedad =>
             {
                 propiedad.ToTable("Propiedades");

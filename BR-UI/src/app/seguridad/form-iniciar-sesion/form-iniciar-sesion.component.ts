@@ -1,20 +1,18 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { CredencialesUsuario } from '../seguridad';
-import { SeguridadService } from '../seguridad.service';
+import { CredencialesUsuarioRegistro } from '../seguridad';
 
 @Component({
-  selector: 'app-form-autenticacion',
-  templateUrl: './form-autenticacion.component.html',
-  styleUrls: ['./form-autenticacion.component.scss']
+  selector: 'app-form-iniciar-sesion',
+  templateUrl: './form-iniciar-sesion.component.html',
+  styleUrls: ['./form-iniciar-sesion.component.scss']
 })
-export class FormAutenticacionComponent implements OnInit {
+export class FormIniciarSesionComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder) { }
 
-  @Output() formToSubmit: EventEmitter<CredencialesUsuario> = new EventEmitter<CredencialesUsuario>()
+  @Output() formToSubmit: EventEmitter<CredencialesUsuarioRegistro> = new EventEmitter<CredencialesUsuarioRegistro>()
 
   @Input() errores: string[] = []
 
@@ -51,4 +49,5 @@ export class FormAutenticacionComponent implements OnInit {
 
     return this.erroresFrontend
   }
+
 }

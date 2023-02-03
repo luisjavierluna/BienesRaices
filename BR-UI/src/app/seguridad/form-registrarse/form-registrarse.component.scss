@@ -1,0 +1,21 @@
+@import '../../home/home.component.scss';
+@import '../../../styles.scss';
+
+fieldset {
+    span {
+        ul {
+            padding: 0;
+            
+            li {
+                background-color: $errorsRed;
+                color: $blanco;
+                text-align: center;
+                font-weight: $bold;
+                list-style: none;
+                margin: 1rem 5rem;
+            }
+        }
+
+
+    }
+}

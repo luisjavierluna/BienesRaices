@@ -37,6 +37,7 @@ const routes: Routes = [
 
       {path: 'registrarse', component: RegistrarseComponent},
       {path: 'iniciar-sesion', component: IniciarSesionComponent},
+      {path: '**', redirectTo: '/'},
     ]},
 ];
 

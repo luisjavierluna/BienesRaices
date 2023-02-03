@@ -26,8 +26,9 @@ import { RegistroExitosoComponent } from './utilidades/registro-exitoso/registro
 import { IniciarSesionComponent } from './seguridad/iniciar-sesion/iniciar-sesion.component';
 import { RegistrarseComponent } from './seguridad/registrarse/registrarse.component';
 import { AutorizadoComponent } from './seguridad/autorizado/autorizado.component';
-import { FormAutenticacionComponent } from './seguridad/form-autenticacion/form-autenticacion.component';
 import { SeguridadInterceptorService } from './seguridad/seguridad-interceptor.service';
+import { FormRegistrarseComponent } from './seguridad/form-registrarse/form-registrarse.component';
+import { FormIniciarSesionComponent } from './seguridad/form-iniciar-sesion/form-iniciar-sesion.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { SeguridadInterceptorService } from './seguridad/seguridad-interceptor.s
     IniciarSesionComponent,
     RegistrarseComponent,
     AutorizadoComponent,
-    FormAutenticacionComponent
+    FormRegistrarseComponent,
+    FormIniciarSesionComponent
   ],
   imports: [
     BrowserModule,

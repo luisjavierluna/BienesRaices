@@ -32,7 +32,7 @@
     <div class="contenedor">
         <app-autorizado>
             <ng-container autorizado>
-                <span>Hola, {{seguridadService.obtenerCampoJWT('email')}}</span>
+                <span>Hola, {{seguridadService.obtenerCampoJWT('userName')}}</span>
                 <span> | </span>
                 <a (click)="seguridadService.cerrarSesion()">Cerrar Sesión</a>
             </ng-container>

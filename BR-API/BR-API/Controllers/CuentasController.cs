@@ -1,8 +1,12 @@
 ﻿using BR_API.DTOs;
+using BR_API.Entities;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Newtonsoft.Json.Linq;
+using System.Diagnostics;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -15,22 +19,44 @@ namespace BR_API.Controllers
     {
         private readonly UserManager<IdentityUser> userManager;
         private readonly SignInManager<IdentityUser> signInManager;
+        private readonly ApplicationDbContext context;
         private readonly IConfiguration configuration;
 
         public CuentasController(
             UserManager<IdentityUser> userManager,
             SignInManager<IdentityUser> signInManager,
+            ApplicationDbContext context,
             IConfiguration configuration)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
+            this.context = context;
             this.configuration = configuration;
         }
 
         [HttpPost("registrarse")]
-        public async Task<IActionResult> Registrarse([FromBody] CredencialesUsuario credenciales)
-        {
-            var usuario = new IdentityUser { UserName = credenciales.Email, Email = credenciales.Email };
+        public async Task<IActionResult> Registrarse([FromBody] CredencialesUsuarioRegistro credenciales)
+        {   
+            var nombreUsuario = await context.AppUsers.FirstOrDefaultAsync(x => x.Name == credenciales.Name);
+
+            if (nombreUsuario != null)
+            {
+                return BadRequest($"Ya existe el Nombre de Usuario {nombreUsuario.Name}, por favor elige otro");
+            }
+
+            var emailUsuario = await context.AppUsers.FirstOrDefaultAsync(x => x.Email == credenciales.Email);
+
+            if (emailUsuario != null)
+            {
+                return BadRequest($"Ya tenemos registrado en nuestro sistema el Email {emailUsuario.Email}");
+            }
+
+            var usuario = new AppUser 
+            { 
+                UserName = credenciales.Email, 
+                Email = credenciales.Email,
+                Name = credenciales.Name,
+            };
             var resultado = await userManager.CreateAsync(usuario, credenciales.Password);
 
             if (resultado.Succeeded)
@@ -44,7 +70,7 @@ namespace BR_API.Controllers
         }
 
         [HttpPost("iniciar-sesion")]
-        public async Task<IActionResult> IniciarSesion([FromBody] CredencialesUsuario credenciales)
+        public async Task<IActionResult> IniciarSesion([FromBody] CredencialesUsuarioLogin credenciales)
         {
             var resultado = await signInManager.PasswordSignInAsync(credenciales.Email, credenciales.Password,
                 isPersistent: false, lockoutOnFailure: false);
@@ -59,11 +85,19 @@ namespace BR_API.Controllers
             }
         }
 
-        private async Task<IActionResult> ConstruirToken(CredencialesUsuario credenciales)
+        private async Task<IActionResult> ConstruirToken<T>(T credenciales) where T : ICredencialesUsuario
         {
+            var usuarioRegistrado = await context.AppUsers.FirstOrDefaultAsync(x => x.Email == credenciales.Email);
+
+            if (usuarioRegistrado == null)
+            {
+                return BadRequest($"Hubo un error inesperado relacionado al usuario con correo {usuarioRegistrado.Email}");
+            }
+
             var claims = new List<Claim>()
             {
-                new Claim("email",credenciales.Email)
+                new Claim("email",credenciales.Email),
+                new Claim("userName",usuarioRegistrado.Name)
             };
 
             var usuario = await userManager.FindByEmailAsync(credenciales.Email);

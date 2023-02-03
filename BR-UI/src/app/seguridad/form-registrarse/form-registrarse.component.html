@@ -1,0 +1,33 @@
+<app-mostrar-errores [errores]="errores" ></app-mostrar-errores>
+
+<form class="formulario" [formGroup]="form" (submit)="formToSubmit.emit(form.value)">
+    <fieldset>
+        <legend>Email y Password</legend>
+
+        <span>
+            <ul>
+                <li *ngFor="let error of getEmailErrorMessage()">{{error}}</li>
+            </ul>
+        </span>
+
+        <div class="form-group" >
+            <label for="email">E-mail</label>
+            <input formControlName="email" type="email" placeholder="Tu Email" id="email" >
+        </div>
+
+        <div class="form-group" >
+            <label for="name">Nombre de Usuario</label>
+            <input formControlName="name" type="text" placeholder="Tu Nombre de Usuario" id="name" >
+        </div>
+        
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input formControlName="password" type="password" placeholder="Tu Password" id="password">
+        </div>
+
+    </fieldset>
+
+    <button type="submit" class="boton boton-verde" [disabled]="form.invalid">Registrarse</button>
+
+    <!-- <input type="submit" value="Iniciar Sesión" class="boton boton-verde" [disabled]="form.invalid"> -->
+</form>

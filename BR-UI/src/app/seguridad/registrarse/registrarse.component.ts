@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { parsearErroresAPI } from 'src/app/utilidades/utilidades';
-import { CredencialesUsuario } from '../seguridad';
+import { CredencialesUsuarioRegistro } from '../seguridad';
 import { SeguridadService } from '../seguridad.service';
 
 @Component({
@@ -21,7 +21,7 @@ export class RegistrarseComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  registrarse(credenciales: CredencialesUsuario) {
+  registrarse(credenciales: CredencialesUsuarioRegistro) {
     this.seguridadService.registrarse(credenciales)
     .subscribe({
       next: response => {

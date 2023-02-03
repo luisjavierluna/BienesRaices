@@ -1,4 +1,10 @@
-export interface CredencialesUsuario {
+export interface CredencialesUsuarioRegistro {
+    name: string
+    email: string
+    password: string
+}
+
+export interface CredencialesUsuarioLogin {
     email: string
     password: string
 }

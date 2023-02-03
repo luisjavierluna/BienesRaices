@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { CredencialesUsuario, RespuestaAutenticacion } from './seguridad';
+import { CredencialesUsuarioLogin, CredencialesUsuarioRegistro, RespuestaAutenticacion } from './seguridad';
 
 @Injectable({
   providedIn: 'root'
@@ -12,8 +12,8 @@ export class SeguridadService {
   constructor(private http: HttpClient) { }
 
   apiURL = environment.apiURL + 'cuentas'
-  private readonly  llaveToken = 'token'
-  private readonly  llaveExpiracion = 'llave-expiracion'
+  private readonly  llaveToken = 'token-BR'
+  private readonly  llaveExpiracion = 'llave-expiracion-BR'
 
   sesionIniciadaActiva(): boolean {
     const token = localStorage.getItem(this.llaveToken)
@@ -48,11 +48,11 @@ export class SeguridadService {
     return dataToken[field]
   }
 
-  registrarse(credenciales: CredencialesUsuario): Observable<RespuestaAutenticacion> {
+  registrarse(credenciales: CredencialesUsuarioRegistro): Observable<RespuestaAutenticacion> {
     return this.http.post<RespuestaAutenticacion>(this.apiURL + '/registrarse', credenciales)
   }
 
-  iniciarSesion(credenciales: CredencialesUsuario): Observable<RespuestaAutenticacion> {
+  iniciarSesion(credenciales: CredencialesUsuarioLogin): Observable<RespuestaAutenticacion> {
     return this.http.post<RespuestaAutenticacion>(this.apiURL + '/iniciar-sesion', credenciales)
   }
 

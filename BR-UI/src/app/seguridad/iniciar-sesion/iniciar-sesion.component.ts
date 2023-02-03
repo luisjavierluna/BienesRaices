@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { parsearErroresAPI } from 'src/app/utilidades/utilidades';
-import { CredencialesUsuario } from '../seguridad';
+import { CredencialesUsuarioLogin, CredencialesUsuarioRegistro } from '../seguridad';
 import { SeguridadService } from '../seguridad.service';
 
 @Component({
@@ -21,7 +21,7 @@ export class IniciarSesionComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  iniciarSesion(credenciales: CredencialesUsuario) {
+  iniciarSesion(credenciales: CredencialesUsuarioLogin) {
     this.seguridadService.iniciarSesion(credenciales)
     .subscribe({
       next: response => {
